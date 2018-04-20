@@ -1,0 +1,6 @@
+#####################
+#DEV---Development System
+#QAS---Quality Assurance System
+#PRD---Production System
+#####################
+spring.profiles.active: PRD

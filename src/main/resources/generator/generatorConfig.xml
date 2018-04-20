@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<!--     <properties resource="resources.properties"/> -->
+    <properties resource="application-prd.yml"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+<!--             <property name="mappers" value="tk.mybatis.springboot.util.MyMapper"/> -->
+            <property name="mappers" value="${generator.MapperPlugin}"/>
+        </plugin>
+
+<!--         <jdbcConnection driverClass="com.mysql.jdbc.Driver" -->
+<!--                         connectionURL="jdbc:mysql://192.168.1.201:3366/test?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;serverTimezone=PRC&amp;useSSL=false" -->
+<!--                         userId="${spring.datasource.username}" -->
+<!--                         password="${spring.datasource.password}"> -->
+        <jdbcConnection driverClass="${spring.datasource.driverClassName}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+
+        </jdbcConnection>
+		<!-- 生成pojo的所在包	 -->
+        <javaModelGenerator targetPackage="${generator.javaModelGenerator}" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="${generator.sqlMapGenerator}" targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="${generator.javaClientGenerator}" targetProject="src/main/java" type="XMLMAPPER"/>
+            <!--mysql 配置-->
+            <table tableName="%">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            </table>
+            <!--oracle 配置-->
+    </context>
+</generatorConfiguration>

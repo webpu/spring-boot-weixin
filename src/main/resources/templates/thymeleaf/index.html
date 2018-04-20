@@ -1,0 +1,12 @@
+<html>
+<body>
+welcome to Spring Boot Thymeleaf!
+<div th:object="${re.sys}">
+<h1 th:text="*{name}"> title1</h1>
+<h1 th:text="*{website}"> title2</h1>
+<h1 th:text="*{copyright}">title3</h1>
+<h2 th:text="${re.ver}"></h2>
+</div>
+
+</body>
+</html>
