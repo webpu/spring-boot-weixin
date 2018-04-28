@@ -1,11 +1,17 @@
 package com.webpu.m.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "sys_user")
-public class SysUser {
+public class SysUser implements Serializable{
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * ID自动
      */
     @Id
@@ -16,6 +22,9 @@ public class SysUser {
      * 用户名
      */
     private String name;
+
+
+	
 
     /**
      * 登陆名
@@ -41,6 +50,7 @@ public class SysUser {
     @Column(name = "update_time")
     private Date updateTime;
 
+    private SysLog syslog;
     /**
      * 获取ID自动
      *
@@ -148,4 +158,12 @@ public class SysUser {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+    
+    public SysLog getSyslog() {
+		return syslog;
+	}
+
+	public void setSyslog(SysLog syslog) {
+		this.syslog = syslog;
+	}
 }

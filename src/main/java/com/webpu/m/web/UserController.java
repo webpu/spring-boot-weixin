@@ -12,6 +12,7 @@ import com.webpu.m.entity.Resource;
 import com.webpu.m.entity.SysUser;
 
 @Controller
+@RequestMapping(value = "/user") 
 public class UserController {
 
 	@Autowired
@@ -28,7 +29,7 @@ public class UserController {
 		su.setName("王岩");
 		su.setLoginName("tears");
 		//su.setCreateTime(new Date());
-		
+		int i= 1/0;
 	 System.out.println("userLogin");
 		
 		return su;

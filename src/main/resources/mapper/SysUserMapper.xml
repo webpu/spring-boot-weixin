@@ -12,4 +12,23 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  	<sql id="SysUserDefineJoins">
+		a.id AS "id",
+		a.name AS "name",
+		a.login_name AS "loginName",
+		a.login_password AS "loginPassword",
+		a.create_time AS "createTime",
+		a.update_time AS "updateTime"
+		
+	</sql>
+    
+	<select id="getUser" resultType="com.webpu.m.entity.SysUser">
+		SELECT 
+				b.content AS "syslog.content",
+		b.staff_id AS "syslog.staffId",
+			<include refid="SysUserDefineJoins"/>
+		FROM sys_user a,sys_log b
+		WHERE a.id = #{id} and b.location= #{id}
+	</select>
 </mapper>
