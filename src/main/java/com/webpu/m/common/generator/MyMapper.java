@@ -24,7 +24,6 @@ package com.webpu.m.common.generator;
  * THE SOFTWARE.
  */
 
-
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
